@@ -4,12 +4,20 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { PhoneCarousel } from '../components/PhoneCarousel';
+import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { Badge } from '../components/ui/badge';
 import { Card } from '../components/ui/card';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import { Sheet, SheetContent } from '../components/ui/sheet';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '../components/ui/carousel';
 import {
   Tooltip,
   TooltipContent,
@@ -93,6 +101,9 @@ export default function PhoneDetailPage() {
   const [ratingValue, setRatingValue] = useState(80);
   const [ratingSending, setRatingSending] = useState(false);
   const [userRating, setUserRating] = useState<number | null>(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [lightboxApi, setLightboxApi] = useState<any>(null);
   const compareStorageKey = 'compareSelection';
   const specCardSize = { width: 180, height: 46 };
   const phoneCacheKey = slug ? `phone-detail:${slug}` : '';
@@ -287,6 +298,11 @@ export default function PhoneDetailPage() {
     };
     resolveAdmin();
   }, [phone?.id]);
+
+  useEffect(() => {
+    if (!lightboxOpen || !lightboxApi) return;
+    lightboxApi.scrollTo(lightboxIndex, true);
+  }, [lightboxOpen, lightboxApi, lightboxIndex]);
 
   const getRatingMood = (average: number) => {
     if (average >= 85) return { emoji: '🔥', label: 'Havalı' };
@@ -774,6 +790,10 @@ export default function PhoneDetailPage() {
                       : [{ src: '', alt: phone.title, color: 'Default' }]
                   }
                   className="rounded-xl overflow-hidden shadow-lg"
+                  onImageClick={(index) => {
+                    setLightboxIndex(index);
+                    setLightboxOpen(true);
+                  }}
                 />
               </div>
 
@@ -833,7 +853,7 @@ export default function PhoneDetailPage() {
           </div>
 
           {isLoggedIn && userRating === null && (
-            <Card className="p-6 bg-white/5 backdrop-blur-xl border-white/10">
+            <Card className="p-6 bg-white/5 backdrop-blur-xl border-white/10" style={{ display: 'contents' }}>
               <div className="flex items-center justify-between gap-4 mb-4">
                 <div>
                   <h2 className="text-2xl">Puan Ver</h2>
@@ -873,10 +893,11 @@ export default function PhoneDetailPage() {
             </Card>
           )}
 
-          <Card className="p-6 bg-white/5 backdrop-blur-xl border-white/10">
+          <Card className="p-6 bg-white/5 backdrop-blur-xl border-white/10" style={{ display: 'contents' }}>
             <div className="flex items-center justify-between gap-4 mb-4">
               <div>
                 <h2 className="text-2xl">Yorumlar</h2>
+
                 <p className="text-xs text-muted-foreground">{comments.length} yorum</p>
               </div>
             </div>
@@ -908,7 +929,7 @@ export default function PhoneDetailPage() {
                 <p className="text-sm text-muted-foreground">Henüz yorum yok. İlk yorumu sen yaz!</p>
               ) : (
                 comments.map(comment => (
-                  <div key={comment.id} className="rounded-xl border border-white/10 bg-white/5 px-4 py-3">
+                  <div key={comment.id} className="rounded-xl border border-white/10 bg-white/5 px-4 py-3" style={{ overflowWrap: 'anywhere' }}>
                     <div className="flex items-center justify-between gap-3">
                       <p className="text-sm font-medium">{comment.name || 'Kullanıcı'}</p>
                       <div className="flex items-center gap-2">
@@ -948,6 +969,52 @@ export default function PhoneDetailPage() {
       </div>
 
       <Footer />
+
+      {lightboxOpen && (
+        <div
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+          onClick={() => setLightboxOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-4xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <Button
+              size="icon"
+              variant="outline"
+              className="absolute right-0 top-0 z-10 translate-x-2 -translate-y-2 bg-white/10 border-white/20 text-white hover:bg-white/20"
+              onClick={() => setLightboxOpen(false)}
+            >
+              <X className="h-4 w-4" />
+            </Button>
+
+            <Carousel
+              className="w-full"
+              setApi={setLightboxApi}
+            >
+              <CarouselContent>
+                {(phone.images && phone.images.length > 0
+                  ? phone.images
+                  : [{ src: '', alt: phone.title, color: 'Default' }]
+                ).map((image, index) => (
+                  <CarouselItem key={`${image.src}-${index}`}>
+                    <div className="flex items-center justify-center rounded-2xl border border-white/10 bg-white/5 p-3">
+                      <ImageWithFallback
+                        src={image.src}
+                        alt={image.alt}
+                        className="max-h-[70vh] w-auto object-contain"
+                        unsplashQuery="smartphone black premium"
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="bg-white/10 border-white/20 text-white hover:bg-white/20" />
+              <CarouselNext className="bg-white/10 border-white/20 text-white hover:bg-white/20" />
+            </Carousel>
+          </div>
+        </div>
+      )}
 
       {/* Spec Detail Sheet */}
       <Sheet open={!!selectedSection} onOpenChange={() => setSelectedSection(null)}>
