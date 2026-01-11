@@ -778,14 +778,14 @@ export default function PhoneDetailPage() {
               </div>
 
               {phone.price && (
-                <Card className="px-4 py-3 bg-white/5 backdrop-blur-xl border-white/10 w-fit" style={{ backdropFilter: 'blur(20px)', width: 100.42 }}>
+                <Card className="px-4 py-3 bg-white/5 backdrop-blur-xl border-white/10 w-fit" style={{ backdropFilter: 'blur(20px)', width: 100.42, display: 'block' }}>
                   <div className="text-xs text-muted-foreground tracking-wider mb-1 font-medium">Fiyatı</div>
                   <div className="text-xs font-semibold text-[#deb887]">{phone.price}</div>
 
                 </Card>
               )}
 
-              <Card className="px-4 py-3 bg-white/5 backdrop-blur-xl border-white/10 w-full min-w-0" style={{ backdropFilter: 'blur(20px)' }}>
+              <Card className="px-4 py-3 bg-white/5 backdrop-blur-xl border-white/10 w-full min-w-0" style={{ backdropFilter: 'blur(20px)', display: 'block' }}>
                 <div className="text-xs text-muted-foreground tracking-wider mb-1 font-medium">Puan</div>
                 <div className="flex items-center justify-between gap-2">
                   <span className="text-xs font-semibold text-[#deb887]">{ratingAverage || 0}/100</span>
