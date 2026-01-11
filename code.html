@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Dashboard Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.375rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen">
+<div class="relative flex min-h-screen w-full flex-row overflow-x-hidden">
+<!-- Sidebar -->
+<aside class="w-64 flex-shrink-0 bg-white dark:bg-[#1a2632] border-r border-[#e5e7eb] dark:border-[#2a3642] flex flex-col justify-between h-screen fixed left-0 top-0 z-10 hidden md:flex">
+<div class="flex flex-col gap-6 p-4">
+<!-- Header/Logo -->
+<div class="flex items-center gap-3 px-2">
+<div class="bg-primary/10 flex items-center justify-center rounded-lg size-10 text-primary">
+<span class="material-symbols-outlined">dataset</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-[#111418] dark:text-white text-base font-bold leading-normal">DeviceCompare</h1>
+<p class="text-[#637588] dark:text-[#93a5b8] text-xs font-normal">Admin Console</p>
+</div>
+</div>
+<!-- Navigation -->
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#637588] dark:text-[#93a5b8] hover:bg-gray-100 dark:hover:bg-[#2a3642] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[22px]">dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px] fill-1">pending_actions</span>
+<p class="text-sm font-medium leading-normal flex-1">Pending Approvals</p>
+<span class="bg-primary text-white text-xs font-bold px-2 py-0.5 rounded-full">12</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#637588] dark:text-[#93a5b8] hover:bg-gray-100 dark:hover:bg-[#2a3642] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[22px]">devices</span>
+<p class="text-sm font-medium leading-normal">All Devices</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#637588] dark:text-[#93a5b8] hover:bg-gray-100 dark:hover:bg-[#2a3642] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[22px]">group</span>
+<p class="text-sm font-medium leading-normal">Members</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#637588] dark:text-[#93a5b8] hover:bg-gray-100 dark:hover:bg-[#2a3642] transition-colors group" href="#">
+<span class="material-symbols-outlined text-[22px]">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+</nav>
+</div>
+<!-- User Footer -->
+<div class="p-4 border-t border-[#e5e7eb] dark:border-[#2a3642]">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-9" data-alt="Admin user profile avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAmCazievboctKyhtSCvvxd_TdsgXN_5Py-gca9b0zaii6yIeRa9iFqsgj8NgYY1Pg3r1uxvXXkCuiusqg27_-K4livnrK3Ffsi6g6X4fWrAuj4vDijJ_e54mYKiya30A245xKBfLnzhElU3py1ASEIdm7ATxmuZ37lhbeWIAGWgHrK5nN72rN9eDJYD4y_PdJxoeq2xHQjsprFwyV0c2G6pefggSd97IyXwdJJ4ZsiDq1y8_e3CkjPUOeiOpBfM89ZTZwRDFLa-eEK");'></div>
+<div class="flex flex-col">
+<p class="text-[#111418] dark:text-white text-sm font-medium">Alex Morgan</p>
+<p class="text-[#637588] dark:text-[#93a5b8] text-xs">Super Admin</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 md:ml-64 flex flex-col min-h-screen">
+<!-- Top Header (Mobile only) -->
+<header class="md:hidden flex items-center justify-between p-4 bg-white dark:bg-[#1a2632] border-b border-[#e5e7eb] dark:border-[#2a3642]">
+<span class="material-symbols-outlined">menu</span>
+<span class="font-bold">DeviceCompare</span>
+<div class="size-8 rounded-full bg-gray-200" data-alt="placeholder avatar"></div>
+</header>
+<div class="flex-1 p-6 lg:p-10 max-w-[1200px] mx-auto w-full">
+<!-- Page Title -->
+<div class="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+<div>
+<h1 class="text-[#111418] dark:text-white text-3xl font-bold tracking-tight">Overview</h1>
+<p class="text-[#637588] dark:text-[#93a5b8] mt-1">Manage content and review submissions.</p>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center gap-2 bg-white dark:bg-[#2a3642] border border-[#dbe0e6] dark:border-[#4b5563] text-[#111418] dark:text-white px-4 py-2 rounded-lg text-sm font-medium shadow-sm hover:bg-gray-50 dark:hover:bg-[#374151] transition-colors">
+<span class="material-symbols-outlined text-[20px]">file_download</span>
+                            Export Report
+                        </button>
+</div>
+</div>
+<!-- Stats Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+<!-- Card 1 -->
+<div class="flex flex-col gap-1 rounded-xl bg-white dark:bg-[#1a2632] p-6 shadow-[0_2px_4px_rgba(0,0,0,0.02)] border border-[#e5e7eb] dark:border-[#2a3642]">
+<div class="flex items-center justify-between mb-2">
+<p class="text-[#637588] dark:text-[#93a5b8] text-sm font-medium">Pending Review</p>
+<span class="material-symbols-outlined text-orange-500 bg-orange-50 dark:bg-orange-500/10 p-1.5 rounded-md text-[20px]">assignment_late</span>
+</div>
+<p class="text-[#111418] dark:text-white text-3xl font-bold">12</p>
+<p class="text-xs text-[#637588] dark:text-[#93a5b8] mt-1"><span class="text-green-600 font-medium">+2</span> since yesterday</p>
+</div>
+<!-- Card 2 -->
+<div class="flex flex-col gap-1 rounded-xl bg-white dark:bg-[#1a2632] p-6 shadow-[0_2px_4px_rgba(0,0,0,0.02)] border border-[#e5e7eb] dark:border-[#2a3642]">
+<div class="flex items-center justify-between mb-2">
+<p class="text-[#637588] dark:text-[#93a5b8] text-sm font-medium">Active Devices</p>
+<span class="material-symbols-outlined text-primary bg-primary/10 p-1.5 rounded-md text-[20px]">smartphone</span>
+</div>
+<p class="text-[#111418] dark:text-white text-3xl font-bold">1,430</p>
+<p class="text-xs text-[#637588] dark:text-[#93a5b8] mt-1"><span class="text-green-600 font-medium">+5%</span> growth this month</p>
+</div>
+<!-- Card 3 -->
+<div class="flex flex-col gap-1 rounded-xl bg-white dark:bg-[#1a2632] p-6 shadow-[0_2px_4px_rgba(0,0,0,0.02)] border border-[#e5e7eb] dark:border-[#2a3642]">
+<div class="flex items-center justify-between mb-2">
+<p class="text-[#637588] dark:text-[#93a5b8] text-sm font-medium">Total Members</p>
+<span class="material-symbols-outlined text-purple-500 bg-purple-50 dark:bg-purple-500/10 p-1.5 rounded-md text-[20px]">groups</span>
+</div>
+<p class="text-[#111418] dark:text-white text-3xl font-bold">854</p>
+<p class="text-xs text-[#637588] dark:text-[#93a5b8] mt-1"><span class="text-green-600 font-medium">+12</span> new this week</p>
+</div>
+</div>
+<!-- Filters & Search -->
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+<h2 class="text-[#111418] dark:text-white text-xl font-bold">Pending Approvals</h2>
+<div class="flex flex-wrap items-center gap-3 w-full sm:w-auto">
+<div class="relative w-full sm:w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#93a5b8] text-[20px]">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-[#dbe0e6] dark:border-[#4b5563] bg-white dark:bg-[#1a2632] text-sm text-[#111418] dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 placeholder:text-[#93a5b8]" placeholder="Search devices..." type="text"/>
+</div>
+<button class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-[#dbe0e6] dark:border-[#4b5563] bg-white dark:bg-[#1a2632] text-sm font-medium text-[#111418] dark:text-white hover:bg-gray-50 dark:hover:bg-[#2a3642] transition-colors">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+                            Filter
+                        </button>
+</div>
+</div>
+<!-- Pending List -->
+<div class="flex flex-col gap-4">
+<!-- Item 1 -->
+<div class="group flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 rounded-xl bg-white dark:bg-[#1a2632] p-4 shadow-sm border border-[#e5e7eb] dark:border-[#2a3642] hover:shadow-md transition-shadow">
+<!-- Image -->
+<div class="relative w-full md:w-48 aspect-video md:aspect-[4/3] rounded-lg overflow-hidden bg-gray-100 flex-shrink-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="iPhone 15 Pro Max side view" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCQxZJiATCKFHC-C8-jUDLMgJUwzYMly1xc96iA8aB_WQRoJ-T1BCvg1BcCMhaG49gOvDVZd89Pt3xLDTLTJmAhUUbQts_XexnzagXZD4tbF5dI9o8y0DtF_90g77asLXdC6s1_5qa_g0Dt5mqhL0aOInIHWa2pIuzc4EhsDlLAplfff5fu2wGo_qmwSdXpTcWXWccaqq8B2PbBBx6oXZbPWagYAC29FbA2caCi3Ddxz-jiaOZykECJ7zAXYi3NjCvlnepQBkIGc8VE");'></div>
+</div>
+<!-- Content -->
+<div class="flex flex-1 flex-col justify-center gap-1 w-full">
+<div class="flex items-center gap-2 mb-1">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold">iPhone 15 Pro Max</h3>
+<span class="bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-200 text-xs font-medium px-2 py-0.5 rounded-full border border-yellow-200 dark:border-yellow-800">Pending Review</span>
+</div>
+<p class="text-[#637588] dark:text-[#93a5b8] text-sm">$1,199 • 256GB • Natural Titanium</p>
+<div class="flex items-center gap-2 mt-2">
+<div class="size-5 rounded-full bg-cover bg-center" data-alt="user avatar small" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDLDRM6qiibtMemGGdJ7OgVg_wf2a3phRy6a7Lsgz7J_qw5PnLdTQRbYYibjDse0WdVlj9q3gnwkkQ2IUG3f6vZGEh_pZzfs1y43wmrBmLHlrcaaZlfiJfqRaZUD3brdoCIsuH3LHrmwhoP4-9cVujXAZaReawbNwfJ3fe0J4Dldm-YadvDZUjfsU_SzbFEhykWAoIWx_iReCNOE7tVSZ8xzN8qZeAkPEGiKKnMzaUZdGHZ1eYN46rtlG1ZTvbKpOafDJgN3T1bu6Lk");'></div>
+<span class="text-xs text-[#637588] dark:text-[#93a5b8]">Submitted by <span class="font-medium text-[#111418] dark:text-white">User123</span> • 2 hours ago</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-row md:flex-col lg:flex-row items-center gap-3 w-full md:w-auto mt-2 md:mt-0">
+<button class="flex-1 md:flex-none flex items-center justify-center gap-1.5 px-4 py-2 bg-white dark:bg-[#2a3642] border border-[#dbe0e6] dark:border-[#4b5563] rounded-lg text-sm font-medium text-[#111418] dark:text-white hover:bg-gray-50 dark:hover:bg-[#374151] transition-colors">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+                                Edit
+                            </button>
+<button class="flex-1 md:flex-none flex items-center justify-center gap-1.5 px-4 py-2 bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-900/30 rounded-lg text-sm font-medium text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/20 transition-colors">
+<span class="material-symbols-outlined text-[18px]">close</span>
+                                Reject
+                            </button>
+<button class="flex-1 md:flex-none flex items-center justify-center gap-1.5 px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:bg-blue-600 transition-colors shadow-sm shadow-blue-200 dark:shadow-none">
+<span class="material-symbols-outlined text-[18px]">check</span>
+                                Approve
+                            </button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 rounded-xl bg-white dark:bg-[#1a2632] p-4 shadow-sm border border-[#e5e7eb] dark:border-[#2a3642] hover:shadow-md transition-shadow">
+<!-- Image -->
+<div class="relative w-full md:w-48 aspect-video md:aspect-[4/3] rounded-lg overflow-hidden bg-gray-100 flex-shrink-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="Samsung Galaxy S24 Ultra back view" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD0XyTtDLS3BRH_eFuLWhK64yLJsSsG45knkoKmH69RRVh0dcUbW3_Mz0AjUWFc7a5gbzTclIIHF1xESj1-stnaOfUJUBecS1LF9rvLCni_9_h9LYWTnhfpcmKbhfoThFB_MqtyAGcsyWE5787rwgR1niBdjvDLlSpG-W5BmsqWz2tHXvHgfB-259Co60A6DI_UiCE6p8WJ8AGFgQ89m_eIwpWqssPCfkKFUQalKc8VpqZM9iOSm2yn4_OzBJNEvYcpheKVZuO39-1f");'></div>
+</div>
+<!-- Content -->
+<div class="flex flex-1 flex-col justify-center gap-1 w-full">
+<div class="flex items-center gap-2 mb-1">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold">Samsung Galaxy S24 Ultra</h3>
+<span class="bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-200 text-xs font-medium px-2 py-0.5 rounded-full border border-yellow-200 dark:border-yellow-800">Pending Review</span>
+</div>
+<p class="text-[#637588] dark:text-[#93a5b8] text-sm">$1,299 • 512GB • Titanium Gray</p>
+<div class="flex items-center gap-2 mt-2">
+<div class="size-5 rounded-full bg-cover bg-center" data-alt="user avatar 2" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBN8Qe2SpftBQzVC9lvzYYqMFzbKY7aCd_7Eq3b0kgPtDNCuY-W3xbrz3P1f4ZZCQFTF6_X4Voi36A_suZE3ZYd82ooTaWyWBtkbYJtFehKLeE1oOhbWbX-ITnHHMj-Xw2Rh0SGxIWAXCSxfYxTYLlrm5-P02uNN-2_l6ot9KJhoQZfkw4XOzHbSbiUc-lAstkEEeQ7bdo4zHsFemHZm6bKxV5armBwbDC_bfEK2GwHtTX9FSemS-nk8-Kx56qroYIcO-3AV7huz1U9");'></div>
+<span class="text-xs text-[#637588] dark:text-[#93a5b8]">Submitted by <span class="font-medium text-[#111418] dark:text-white">TechGuru99</span> • 4 hours ago</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-row md:flex-col lg:flex-row items-center gap-3 w-full md:w-auto mt-2 md:mt-0">
+<button class="flex-1 md:flex-none flex items-center justify-center gap-1.5 px-4 py-2 bg-white dark:bg-[#2a3642] border border-[#dbe0e6] dark:border-[#4b5563] rounded-lg text-sm font-medium text-[#111418] dark:text-white hover:bg-gray-50 dark:hover:bg-[#374151] transition-colors">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+                                Edit
+                            </button>
+<button class="flex-1 md:flex-none flex items-center justify-center gap-1.5 px-4 py-2 bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-900/30 rounded-lg text-sm font-medium text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/20 transition-colors">
+<span class="material-symbols-outlined text-[18px]">close</span>
+                                Reject
+                            </button>
+<button class="flex-1 md:flex-none flex items-center justify-center gap-1.5 px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:bg-blue-600 transition-colors shadow-sm shadow-blue-200 dark:shadow-none">
+<span class="material-symbols-outlined text-[18px]">check</span>
+                                Approve
+                            </button>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="group flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 rounded-xl bg-white dark:bg-[#1a2632] p-4 shadow-sm border border-[#e5e7eb] dark:border-[#2a3642] hover:shadow-md transition-shadow">
+<!-- Image -->
+<div class="relative w-full md:w-48 aspect-video md:aspect-[4/3] rounded-lg overflow-hidden bg-gray-100 flex-shrink-0">
+<div class="w-full h-full bg-cover bg-center" data-alt="Google Pixel 8 Pro rear view" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB6O25g2kNV4kbIY3QkUxM8nISmLByF1LQ9xGXqyRa4UOYvz7hT4hh_AxOusm83OsitqAUALtSnVVnhvLMnITHjWptGBapDhlfybszkTgsdjuRuZGuSR0PPqc2qL7rreGcGQqo7hSnCyByWfr2754ZAhnl3u_8uJSW78RUE0-xwl40HRfCSTBQZF-UKqD2jnJN3nxKLmUbJDxfA9MH-PsnxnhcPdeh7MUg7TLZuev9SsMOsQEif73BLsSRpJhA_CFrBDE_8FN0oEQ7w");'></div>
+</div>
+<!-- Content -->
+<div class="flex flex-1 flex-col justify-center gap-1 w-full">
+<div class="flex items-center gap-2 mb-1">
+<h3 class="text-[#111418] dark:text-white text-lg font-bold">Google Pixel 8 Pro</h3>
+<span class="bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-200 text-xs font-medium px-2 py-0.5 rounded-full border border-yellow-200 dark:border-yellow-800">Pending Review</span>
+</div>
+<p class="text-[#637588] dark:text-[#93a5b8] text-sm">$999 • 128GB • Porcelain</p>
+<div class="flex items-center gap-2 mt-2">
+<div class="size-5 rounded-full bg-cover bg-center" data-alt="user avatar 3" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCt-JNTRMN_oUu1HqdQIvhjt-T4UUtdWzjYXz6lglgBaugurSwsbzUEBrO09BXZnGmTXqvhl1FRlcFEh84_fYXkcUl8I4kAUF-yKibF08L2qsKyFO9inedEMDo1mcXSAygZ5JK1xyjp7bR39BQEJfwhaI_LH5otnK5LmMB3_g5EvCQgIOedMmfQDj04Trnd_rjkbRDfelj9ox2X63jJjfnyjI2hOiik-yZfxsCOeiS5BGKn6LcekIOhIPIEEq27uBoEF1WmfkmuqNcn");'></div>
+<span class="text-xs text-[#637588] dark:text-[#93a5b8]">Submitted by <span class="font-medium text-[#111418] dark:text-white">AndroidFan</span> • 6 hours ago</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-row md:flex-col lg:flex-row items-center gap-3 w-full md:w-auto mt-2 md:mt-0">
+<button class="flex-1 md:flex-none flex items-center justify-center gap-1.5 px-4 py-2 bg-white dark:bg-[#2a3642] border border-[#dbe0e6] dark:border-[#4b5563] rounded-lg text-sm font-medium text-[#111418] dark:text-white hover:bg-gray-50 dark:hover:bg-[#374151] transition-colors">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+                                Edit
+                            </button>
+<button class="flex-1 md:flex-none flex items-center justify-center gap-1.5 px-4 py-2 bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-900/30 rounded-lg text-sm font-medium text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/20 transition-colors">
+<span class="material-symbols-outlined text-[18px]">close</span>
+                                Reject
+                            </button>
+<button class="flex-1 md:flex-none flex items-center justify-center gap-1.5 px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:bg-blue-600 transition-colors shadow-sm shadow-blue-200 dark:shadow-none">
+<span class="material-symbols-outlined text-[18px]">check</span>
+                                Approve
+                            </button>
+</div>
+</div>
+</div>
+<!-- Pagination/Load More -->
+<div class="flex justify-center mt-10">
+<button class="text-[#637588] dark:text-[#93a5b8] hover:text-primary dark:hover:text-primary font-medium text-sm flex items-center gap-2 px-4 py-2 transition-colors">
+                        View all pending requests
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+</body></html>
