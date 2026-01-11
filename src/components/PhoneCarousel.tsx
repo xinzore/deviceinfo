@@ -18,9 +18,16 @@ interface PhoneCarouselProps {
   variant?: 'default' | 'compact';
   className?: string;
   compactSize?: { width: number; height: number };
+  onImageClick?: (index: number) => void;
 }
 
-export function PhoneCarousel({ images, variant = 'default', className, compactSize = { width: 100, height: 150 } }: PhoneCarouselProps) {
+export function PhoneCarousel({
+  images,
+  variant = 'default',
+  className,
+  compactSize = { width: 100, height: 150 },
+  onImageClick,
+}: PhoneCarouselProps) {
   const isCompact = variant === 'compact';
   const compactStyle = isCompact ? { maxWidth: compactSize.width, minWidth: compactSize.width } : undefined;
   return (
@@ -48,7 +55,11 @@ export function PhoneCarousel({ images, variant = 'default', className, compactS
                 )}
 
                 {/* Phone image */}
-                <div className="relative">
+                <button
+                  type="button"
+                  className="relative cursor-zoom-in focus:outline-none"
+                  onClick={() => onImageClick?.(index)}
+                >
                   <ImageWithFallback
                     src={image.src}
                     alt={image.alt}
@@ -56,7 +67,7 @@ export function PhoneCarousel({ images, variant = 'default', className, compactS
                     style={isCompact ? { maxHeight: compactSize.height } : undefined}
                     unsplashQuery="smartphone black premium"
                   />
-                </div>
+                </button>
 
                 {/* Color badge */}
                 {!isCompact && (
