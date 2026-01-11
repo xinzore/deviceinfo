@@ -652,7 +652,7 @@ export default function FilterPage() {
                 </Card>
               ) : (
                 <Card className="bg-white/5 border-white/10 overflow-hidden max-w-full p-6">
-                  <div className="overflow-x-auto px-2">
+                  <div className="overflow-x-auto px-2 overflow-y-auto">
                     <Table className="w-full">
                       <TableHeader>
                         <TableRow>
